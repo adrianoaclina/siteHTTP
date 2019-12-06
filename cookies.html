@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Cookies</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="index.html">HTTP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="visao.html">Visão</a>
+                    <a class="nav-item nav-link" href="cabecalhos.html">Cabeçalhos</a>
+                    <a class="nav-item nav-link active" href="cookies.html">Cookies</a>
+                    <a class="nav-item nav-link " href="requisicao.html">Requisições</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cont">
+        <h1>Cookies HTTP</h1>
+        <p>
+            Um cookie HTTP (um cookie web ou cookie de browser) é um pequeno fragmento de dados que um servidor envia
+            para o navegador do usuário. O navegador pode então armazenar estes dados e enviá-los de volta com a próxima
+            requisição para o mesmo servidor. Normalmente é utilizado para identificar se duas requisições vieram do
+            mesmo navegador — ao manter um usuário logado, por exemplo. Ele guarda informações dinâmicas para o
+            protocolo HTTP sem estado.
+        </p>
+
+        <p>Cookies são usados principalmente para três propósitos:</p>
+
+        <h3>Gerenciamento de sessão</h3>
+        <p class="p3">Logins, carrinhos de compra, placar de games ou qualquer outra atividade que deva ser guardada por
+            um
+            servidor.</p>
+        <h3>Personalização</h3>
+        <p class="p3">Preferências de usuário, temas e outras configurações.</p>
+        <h3>Rastreamento</h3>
+        <p class="p3">Gravação e análise do comportamento de um usuário.</p>
+
+        <p>Os cookies já foram usados para armazenamento geral no lado do cliente. Embora isso fosse legítimo quando
+            eram a única forma de armazenar dados no cliente, atualmente é recomendável utilizar APIs de armazenamento
+            mais modernas. Os cookies são enviados com toda requisição, logo podem prejudicar a performance
+            (especialmente em conexões móveis). As APIs modernas de armazenamento no cliente são Web storage API
+            (localStorage e sessionStorage) e IndexedDB.</p>
+
+        <h2 style="font-size: 2rem;">Criando cookies</h2>
+        <p>Ao receber uma requisição HTTP, um servidor pode enviar um cabeçalho Set-Cookie com a resposta. O cookie
+            normalmente é armazenado pelo navegador, então o cookie é enviado com as requisições feitas para o mesmo
+            servidor dentro do cabeçalho HTTP Cookie. Uma data de expiração ou duração pode ser especificada, e após
+            esta
+            data o cookie não é mais enviado. Adicionalmente, restrições para um domínio específico e caminho podem ser
+            configuradas, limitando para onde o cookie é enviado.</p>
+
+        <h3>Os cabeçalhos Set-Cookie e Cookie</h3>
+        <p>O cabeçalho HTTP de resposta Set-Cookie envia cookies do servidor para o cliente. Um cookie simples é
+            configurado da seguinte forma:</p>
+
+        <pre class="syntaxbox">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;</pre>
+
+        <p>Este cabeçalho de servidor informa ao cliente para armazenar um cookie.</p>
+
+        <h3>Cookies de sessão</h3>
+        <p>O cookie criado anteriormente é um cookie de sessão: ele é apagado quando o cliente fecha a sessão, pois não
+            foi
+            específicada uma diretiva Expires ou Max-Age. Entretanto, navegadores web podem usar restauração de sessão,
+            o
+            que torna quase todos cookies de sessão permanentes, como se o navegador nunca tivesse sido fechado.</p>
+
+        <h3>Cookies permanentes</h3>
+        <p>Ao invés de expirar quando o cliente fecha, cookies permanentes expiram em uma data específica (Expires) ou
+            depois de um período específico de tempo (Max-Age).</p>
+        <pre class="syntaxbox">Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly</pre>
+
+        <h3>Escopo dos cookies</h3>
+
+        <p>As diretivas Domain e Path definem o escopo de um cookie: para quais URLs os cookies devem ser enviados.</p>
+
+        <p>A diretiva Domain especifica os hosts permitidos de receber o cookie. Se não é especificada, o seu valor
+            padrão
+            é o host da localização do documento atual, excluindo subdomínios. Se a diretiva Domain é especificada,
+            então os
+            subdomínios são também incluídos.</p>
+
+        <p>Por exemplo, se Domain=mozilla.org é configurado, então os cookies são incluídos em subdomínios como
+            developer.mozilla.org.</p>
+
+        <p>A diretiva Path indica o caminho da URL que deve existir na URL requisitada para que o cabeçalho Cookie seja
+            enviado. O caractere %x2F ("/") é considerado um separador de diretórios, e os subdiretórios também seguem
+            essa
+            regra.</p>
+
+        <p>Por exemplo, se Path=/docs é configurado, estes caminhos coincidem:</p>
+        <ul class="p3">
+            <li>/docs</li>
+            <li>/docs/Web/</li>
+            <li>/docs/Web/HTTP</li>
+        </ul>
+
+        <h3>Cookies SameSite</h3>
+        <p>Cookies SameSite permitem que servidores exijam que um cookie não deve ser enviado com requisições entre
+            sites,
+            o que pode proteger contra ataques de requisição forjada entre sites (CSRF).</p>
+
+        <p>Cookies SameSite são relativamente novos, mas tem suporte nos principais browsers do mercado.</p>
+
+        <p>Veja um exemplo:</p>
+
+        <pre class="syntaxbox">Set-Cookie: key=value; SameSite=Strict</pre>
+
+        <p>O atributo SameSite pode receber um ou dois valores (case-insensitive):</p>
+
+        <h3>Strict</h3>
+        <p class="p3">Se o cookie same-site possuir este atributo, o navegador enviará cookies apenas se a requisição
+            for enviada
+            do
+            website que configurou este cookie, Se a requisição tem origem em outra URL, nenhum cookie com o
+            atributoStrict
+            será incluído.</p>
+        <h3>Lax</h3>
+        <p class="p3">Se o atributo receber o valor Lax, os cookies same-site ficarão retidos nas sub-requisições entre
+            sites,
+            como
+            chamadas para carregar imagens ou frames, mas serão enviadas quando um usuário navegar para o URL de um site
+            externo.</p>
+        <p>O comportamento padrão se a flag não estiver setada ou não sem suporte donavegador é incluir os cookies em
+            qualquer solicitação, incluindo solicitações cross-origin.</p>
+
+    </main>
+</body>
+
+</html>
