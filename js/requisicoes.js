@@ -179,7 +179,7 @@ function deleteHttp(){
     ajax.onreadystatechange = function(){
         if (ajax.readyState == 4 && ajax.status == 204) {
             var p = ç("#pDelete");
-            p.innerHTML = "Erro 204";
+            p.innerHTML = "Erro 204 - Verifique o console";
         }
 
     }
