@@ -12,7 +12,6 @@
 
     <title>Cabeçalhos</title>
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,9 +23,19 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="visao.html">Visão</a>
-                    <a class="nav-item nav-link active" href="cabecalhos.html">Cabeçalhos</a>
+                    <a class="nav-item nav-link" href="cabecalhos.html">Cabeçalhos</a>
                     <a class="nav-item nav-link" href="cookies.html">Cookies</a>
-                    <a class="nav-item nav-link " href="requisicao.html">Requisições</a>
+                    <div class="btn-group">
+                        <a href="requisicao.html" class="btn btn-secondary">Requisições</a>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="get.html">GET</a>
+                            <a class="dropdown-item" href="post.html">POST</a>
+                            <a class="dropdown-item" href="putedelete.html">PUT e DELETE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -101,9 +110,7 @@
         <h5><code>Save-Data</code></h5>
         <h5><code>Viewport-Width</code></h5>
         <h5><code>Width</code></h5>
-
         <h2>Condicionais</h2>
-
         <h5><code>Last-Modified</code></h5>
         <p>É um validador, a última data de modificação de um recurso, usado para comparar várias versões de um mesmo
             recurso. É menos preciso que o ETag, mas é mais fácil calcular em alguns ambientes. Requisições condicionais

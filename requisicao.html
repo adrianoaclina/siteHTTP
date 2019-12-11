@@ -16,7 +16,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="index.php">HTTP</a>
+            <a class="navbar-brand" href="index.php">HTTP</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
                 <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,17 @@
                     <a class="nav-item nav-link" href="visao.html">Visão</a>
                     <a class="nav-item nav-link" href="cabecalhos.html">Cabeçalhos</a>
                     <a class="nav-item nav-link" href="cookies.html">Cookies</a>
-                    <a class="nav-item nav-link active" href="requisicao.html">Requisições</a>
+                    <div class="btn-group">
+                        <a href="requisicao.html" class="btn btn-secondary">Requisições</a>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="get.html">GET</a>
+                            <a class="dropdown-item" href="post.html">POST</a>
+                            <a class="dropdown-item" href="putedelete.html">PUT e DELETE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -40,20 +50,20 @@
             recursos são compartilhados por um grupo deles, como por exemplo, qualquer método de requisição pode ser do
             tipo safe, idempotent ou cacheable.</p>
 
-        <h2>GET</h2>
+        <h2><a href="get.html">GET</a></h2>
         <p>O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem
             retornar apenas dados.</p>
         <h2>HEAD</h2>
         <p>O método HEAD solicita uma resposta de forma idêntica ao método GET, porém sem conter o corpo da resposta.
         </p>
-        <h2>POST</h2>
+        <h2><a href="post.html">POST</a></h2>
         <p> O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma
             mudança no estado do recurso ou efeitos colaterais no servidor.</p>
-        <h2>PUT</h2>
+        <h2><a href="putedelete.html">PUT</a></h2>
         <p>O método PUT substitui todas as atuais representações do recurso de destino pela carga de dados da
             requisição.</p>
 
-        <h2>DELETE</h2>
+        <h2><a href="putedelete.html">DELETE</a></h2>
         <p>O método DELETE remove um recurso específico.</p>
         <h2>CONNECT</h2>
         <p>O método CONNECT estabelece um túnel para o servidor identificado pelo recurso de destino.</p>
@@ -63,7 +73,7 @@
         <h2>TRACE</h2>
         <p>O método TRACE executa um teste de chamada loop-back junto com o caminho para o recurso de destino.</p>
 
-        <h2>PATCH</h2>
+        <h2><a href="putedelete.html">PATCH</a></h2>
         <p>O método PATCH é utilizado para aplicar modificações parciais em um recurso.</p>
     </main>
     <style>

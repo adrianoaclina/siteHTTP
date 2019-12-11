@@ -14,6 +14,19 @@ body{
 h1, h2, h3{
    color: black;
 }
+.botao {
+    color: gray;
+}
+#pDelete{
+    padding-top: 1%;
+}
+#pPost{
+    padding-top: 1%;
+}
+
+.botao:hover {
+    color: rgba(255,255,255,.75);
+}
 
 .info{
     padding: 2% 0%;
@@ -111,4 +124,16 @@ a{
     -webkit-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
+}
+
+.get>h1{
+    padding-top: 1%;
+}
+
+.cont>button{
+    width: 50%;
+}
+
+.cont>div>.card{
+    width: 50%;
 }
